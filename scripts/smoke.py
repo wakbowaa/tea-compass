@@ -1,0 +1,5 @@
+import json,re
+from pathlib import Path
+from genlayer_py import create_account,create_client
+from genlayer_py.chains import studionet
+R=Path(__file__).parents[1];text=(R.parents[3]/"accounts.env").read_text();key=re.search(r'^ACCOUNT_6_GENLAYER_PRIVATE_KEY\s*=\s*"?([^"\r\n]+)',text,re.M).group(1).strip();client=create_client(chain=studionet,account=create_account(account_private_key=key));address="0x3b8dDEF7cD08764df66845a2E18D92B1D08C87D4";tx=client.write_contract(address=address,function_name="open_flight",args=["LIVE-TC-0928","Spring-picked whole leaf tea from a shaded hillside lot, with the cultivar and date supplied by the host.","Five grams in a porcelain vessel, ninety degree water, three short infusions, evaluated without additives.",["floral","mineral","fruit","finish"]]);print("write_tx="+str(tx),flush=True);receipt=client.wait_for_transaction_receipt(transaction_hash=tx,wait_until="finalized",retries=180,interval=5000,full_transaction=True);print(json.dumps({"status":receipt.get("status_name")or receipt.get("result_name"),"tx":str(tx)},default=str),flush=True)

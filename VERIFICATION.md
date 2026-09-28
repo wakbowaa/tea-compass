@@ -1,0 +1,3 @@
+# Bench Verification
+
+GenVM AST lint passed, two direct surface tests passed, TypeScript passed, static export passed, content scans passed, and the production dependency audit reported zero vulnerabilities. StudioNet finalized `0xc9a246d47ec46770eb6a1f15c11a23649e4038032ae19aecfc7743ae4d5da317` with `MAJORITY_AGREE` and leader execution `SUCCESS`, creating `0x3b8dDEF7cD08764df66845a2E18D92B1D08C87D4`. The reviewed contract source SHA-256 is `652925e7c352840253b7a5484e12108de8969b8845f6add57247e607db483162`, and the matching first repository commit is `175c96d78c5008d665d6b69a391d1bd7faefcd51`. Cloudflare canonical production returned HTTP 200 with title `Tea Compass`.
